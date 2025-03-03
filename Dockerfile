@@ -23,8 +23,9 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 # Copy built files from previous page
-COPY --from=Builder /app ./
-
+COPY --from=Builder /app/.next ./next
+COPY --from=Builder /app/public ./public
+COPY --from=Builder /app/package.json ./package.json
 #Expose the Next.js port
 EXPOSE 3000
 
