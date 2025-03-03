@@ -19,6 +19,9 @@ FROM node:22-alpine
 #Set working directory
 WORKDIR /app
 
+# Install PNPM
+RUN npm install -g pnpm
+
 # Copy built files from previous page
 COPY --from=Builder /app ./
 
