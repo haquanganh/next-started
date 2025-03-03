@@ -23,6 +23,7 @@ WORKDIR /app
 RUN npm install -g pnpm
 
 # Copy built files from previous page
+COPY --from=Builder /app/node_modules ./node_modules
 COPY --from=Builder /app/.next ./next
 COPY --from=Builder /app/public ./public
 COPY --from=Builder /app/package.json ./package.json
