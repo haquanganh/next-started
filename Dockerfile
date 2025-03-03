@@ -10,6 +10,7 @@ WORKDIR /app
 # Copy package.json and install directories
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install
+COPY . . 
 RUN pnpm build
 
 # Use a minimal runtime edge
